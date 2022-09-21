@@ -1,8 +1,21 @@
+#include "game/State.hpp"
+
+#include <cstdlib>
 #include <iostream>
-#include "dummy/dummy.hpp"
+#include <stdexcept>
 
 int main()
 {
-    std::cout << "HELLO, WORLD! 5+3 = " << dummy::add(5, 3) << std::endl;
-    return 0;
+    vkmc::State app{};
+
+    try
+    {
+        app.Run();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << "\n";
+        return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
 }

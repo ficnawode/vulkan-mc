@@ -7,7 +7,12 @@ set(CMAKE_CXX_STANDARD 20)
 include(cmake/fetch_content.cmake)
 
 enable_testing()
+add_subdirectory(ThirdParty/glfw)
+add_subdirectory(ThirdParty/glm)
+
 include(GoogleTest)
+include(cmake/find_packages.cmake)
+include(cmake/compile_shaders.cmake)
 
 add_subdirectory(exec)
 add_subdirectory(lib)

@@ -85,7 +85,15 @@
         "deque": "cpp",
         "memory_resource": "cpp",
         "numeric": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "any": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp",
+        "regex": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "unordered_set": "cpp",
+        "pointers": "cpp"
     },
     "editor.codeActionsOnSave": {
         "source.fixAll": true

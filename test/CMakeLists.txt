@@ -3,11 +3,9 @@ set(NAME unit_tests)
 add_executable(${NAME})
 
 target_link_libraries(${NAME}
-PUBLIC
+PRIVATE
     gtest 
     gtest_main
-    
-    dummy
 )
 
 target_include_directories(${NAME}

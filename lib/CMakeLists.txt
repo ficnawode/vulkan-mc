@@ -1,1 +1,7 @@
-add_subdirectory(dummy)
+add_subdirectory(gfx)
+add_subdirectory(camera)
+add_subdirectory(render)
+add_subdirectory(blocks)
+add_subdirectory(util)
+add_subdirectory(world)
+add_subdirectory(entity)

@@ -1,9 +1,8 @@
 {
-    "cmake.generator": "Visual Studio 17 2022",
+    "cmake.generator": "Ninja",
     "cmake.configureSettings": {
         "LOCAL_CFG": ".local/local.cmake"
     },
-    "cmake.configureOnEdit": true,
     "cmake.configureOnOpen": true,
     "clang-format.language.c.enable": true,
     "files.associations": {
@@ -85,7 +84,25 @@
         "deque": "cpp",
         "memory_resource": "cpp",
         "numeric": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "any": "cpp",
+        "strstream": "cpp",
+        "bitset": "cpp",
+        "cfenv": "cpp",
+        "complex": "cpp",
+        "condition_variable": "cpp",
+        "csignal": "cpp",
+        "unordered_set": "cpp",
+        "mutex": "cpp",
+        "numbers": "cpp",
+        "ranges": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "cinttypes": "cpp",
+        "typeindex": "cpp",
+        "valarray": "cpp",
+        "allocator": "cpp"
     },
     "editor.codeActionsOnSave": {
         "source.fixAll": true

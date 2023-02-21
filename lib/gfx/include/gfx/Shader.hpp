@@ -19,11 +19,12 @@ namespace gfx
     {
     public:
         Shader(std::string vertexShaderPath, std::string fragmentShaderPath, gsl::span<VertexAttr> attributes);
+        Shader() : Shader("", "", {}){};
         ~Shader();
 
         void Bind();
         void Uniform(std::string name, glm::mat4 m);
-        void Uniform(std::string name, glm::mat4 view, glm::mat4 proj);
+        void Uniform(glm::mat4 view, glm::mat4 proj);
         void Uniform(std::string name, Texture texture, GLuint n);
         void Uniform(std::string name, float f);
         void Uniform(std::string name, glm::vec2 v);

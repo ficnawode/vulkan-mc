@@ -39,9 +39,18 @@ namespace renderer
             glm::mat4 model);
         void AABB(gfx::AABB aabb, glm::vec4 color, glm::mat4 model, FillMode fillMode);
 
+        void ToggleWireframe()
+        {
+            _wireframe = !_wireframe;
+        }
+
     private:
         camera::CameraType _cameraType;
-        std::array<camera::CameraType, CAMERA_STACK_MAX> _cameraStack;
+        struct
+        {
+            std::array<camera::CameraType, CAMERA_STACK_MAX> array;
+            size_t size = 0;
+        } _cameraStack;
 
         camera::PerspectiveCamera _perspectiveCamera;
         camera::OrthoCamera _orthoCamera;
@@ -55,15 +64,12 @@ namespace renderer
 
         gfx::BlockAtlas _blockAtlas;
 
-        glm::vec4 clearColor;
+        glm::vec4 _clearColor;
 
         gfx::VBO _vbo;
         gfx::VBO _ibo;
         gfx::VAO _vao;
 
-        struct
-        {
-            bool wireframe : 1;
-        } _flags;
+        bool _wireframe = false;
     };
 }

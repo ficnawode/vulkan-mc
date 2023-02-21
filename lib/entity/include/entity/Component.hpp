@@ -8,9 +8,11 @@ namespace entity
     public:
         Component();
         ~Component() = default;
+        virtual void Init(){};
         virtual void Render(){};
         virtual void Update(){};
         virtual void Tick(){};
+
     private:
     };
 }

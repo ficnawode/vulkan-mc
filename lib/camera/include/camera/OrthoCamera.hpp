@@ -11,6 +11,15 @@ namespace camera
 
         void Update();
 
+        glm::mat4 GetView()
+        {
+            return _view;
+        }
+        glm::mat4 GetProj()
+        {
+            return _proj;
+        }
+
     private:
         glm::mat4 _view;
         glm::mat4 _proj;

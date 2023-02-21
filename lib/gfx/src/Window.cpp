@@ -46,6 +46,8 @@ namespace gfx
 
         glfwMakeContextCurrent(_handle);
 
+        glewExperimental = GL_TRUE;
+
         if(glewInit() != GLEW_OK)
         {
             fprintf(stderr, "%s", "error initializing GLEW\n");
@@ -76,6 +78,7 @@ namespace gfx
     void Window::StartLoop()
     {
         Init();
+        MouseSetGrabbed(false);
 
         while(!glfwWindowShouldClose(_handle))
         {

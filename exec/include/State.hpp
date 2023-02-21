@@ -1,6 +1,8 @@
 #pragma once
+
 #include "gfx/Window.hpp"
 #include "gfx/gfx.hpp"
+#include "phase_lambdas.hpp"
 #include "render/Renderer.hpp"
 #include "world/World.hpp"
 
@@ -16,9 +18,10 @@ public:
         return &instance;
     }
 
-    void Create(gfx::Window* window)
+    void StartLoop()
     {
-        _window = window;
+        _renderer = new renderer::Renderer;
+        _window->StartLoop();
     }
 
     gfx::Window* GetWindow() const
@@ -33,7 +36,7 @@ public:
 
     renderer::Renderer* GetRenderer()
     {
-        return &_renderer;
+        return _renderer;
     }
 
     size_t GetTicks()
@@ -50,6 +53,8 @@ private:
     State()
     {
         _ticks = 0;
+        _window = gfx::Window::Instance();
+        _window->Create(init, destroy, tick, update, render);
     }
 
     ~State()
@@ -57,8 +62,40 @@ private:
     }
 
     gfx::Window* _window;
-    renderer::Renderer _renderer;
+    renderer::Renderer* _renderer;
     world::World _world;
     // struct UI ui;
     size_t _ticks;
+
+    void (*init)() = []() { Instance()->GetWindow()->MouseSetGrabbed(true); };
+    void (*destroy)() = []() {};
+    void (*tick)() = []()
+    {
+        Instance()->IncrementTicks();
+        Instance()->GetWorld()->Tick();
+        // State::Instance().
+    };
+    void (*update)() = []()
+    {
+        Instance()->GetRenderer()->Update();
+        Instance()->GetWorld()->Update();
+
+        // wireframe toggle (T)
+        if(Instance()->GetWindow()->GetKeyboard().keys[GLFW_KEY_T].pressed)
+        {
+            Instance()->GetRenderer()->ToggleWireframe();
+        }
+
+        // mouse toggle (ESC)
+        if(Instance()->GetWindow()->GetKeyboard().keys[GLFW_KEY_ESCAPE].pressed)
+        {
+            bool grabbed = Instance()->GetWindow()->MouseGetGrabbed();
+            Instance()->GetWindow()->MouseSetGrabbed(!grabbed);
+        }
+    };
+    void (*render)() = []()
+    {
+        Instance()->GetRenderer()->Prepare(renderer::RenderPass::p3D);
+        Instance()->GetWorld()->Render();
+    };
 };

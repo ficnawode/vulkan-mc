@@ -27,7 +27,6 @@ PRIVATE
     include/gfx/Vbo.hpp
     include/gfx/Window.hpp
     include/gfx/controls.hpp
-    include/gfx/Renderer.hpp
     include/gfx/AABB.hpp
     include/gfx/BlockAtlas.hpp
 

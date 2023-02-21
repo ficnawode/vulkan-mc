@@ -20,12 +20,16 @@ namespace gfx
 
         void Create(void (*init)(), void (*destroy)(), void (*tick)(), void (*update)(), void (*render)());
 
-        void StartLoop();
-        
         glm::ivec2 GetSize() const;
+        void StartLoop();
 
         void MouseSetGrabbed(bool grabbed);
-    bool MouseGetGrabbed();
+        bool MouseGetGrabbed();
+
+        Keyboard GetKeyboard()
+        {
+            return _keyboard;
+        }
 
     private:
         Window();

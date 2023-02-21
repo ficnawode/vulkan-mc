@@ -11,6 +11,19 @@ namespace camera
         ~PerspectiveCamera();
         void Update();
 
+        glm::mat4 GetView()
+        {
+            return _view;
+        }
+        glm::mat4 GetProj()
+        {
+            return _proj;
+        }
+        void SetPos(glm::vec3 position)
+        {
+            _position = glm::vec3{position};
+        }
+
     private:
         glm::mat4 _view;
         glm::mat4 _proj;

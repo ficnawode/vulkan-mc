@@ -7,11 +7,12 @@ namespace camera
 {
     PerspectiveCamera::PerspectiveCamera(double fov) : _fov{fov}
     {
-        _aspect = ((float)gfx::Window::Instance()->GetSize().x) /
-            ((float)gfx::Window::Instance()->GetSize().y);
+        auto size_x = (float)gfx::Window::Instance()->GetSize().x;
+        auto size_y = (float)gfx::Window::Instance()->GetSize().y;
+        _aspect = size_x / size_y;
+
         _zNear = 0.01f;
         _zFar = 1000.0f;
-        Update();
     }
 
     PerspectiveCamera::~PerspectiveCamera()

@@ -15,6 +15,11 @@ namespace gfx
 
         void Update();
 
+        Atlas GetAtlas()
+        {
+            return _atlas;
+        }
+
     private:
         static constexpr uint _FPS = 6;
         static constexpr uint _FRAMES = 16;

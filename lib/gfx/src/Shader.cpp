@@ -117,7 +117,7 @@ namespace gfx
         glUniformMatrix4fv(location, 1, GL_FALSE, (const GLfloat*)glm::value_ptr(m));
     }
 
-    void Shader::Uniform(std::string name, glm::mat4 view, glm::mat4 proj)
+    void Shader::Uniform(glm::mat4 view, glm::mat4 proj)
     {
         Uniform("p", proj);
         Uniform("v", view);

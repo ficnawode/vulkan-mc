@@ -9,6 +9,7 @@ PUBLIC
     glm
     stb
     camera
+    world
 )
 
 target_include_directories(${NAME}
@@ -25,6 +26,7 @@ PRIVATE
     include/entity/ControlComp.hpp
     include/entity/PhysicsComp.hpp
     include/entity/PositionComp.hpp
+    include/entity/MovementComp.hpp
 
     src/Player.cpp
 
